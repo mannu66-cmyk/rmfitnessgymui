@@ -1,3 +1,6 @@
+<div id="membersList" class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1599058917212-d750089bc07a'); background-size: cover;">
+
 <h2>Mark Attendance</h2>
 
 <input [(ngModel)]="mobile" placeholder="Mobile" (input)="onSearchMobile()">
@@ -7,7 +10,7 @@
   <li *ngFor="let num of filteredMobiles" 
       (click)="selectMobile(num.mobile)"
       style="cursor:pointer; padding: 5px; border-bottom: 1px solid #eee;">
-    {{ num.mobile }}
+    {{ num.mobile }} - {{num.name}}
   </li>
 </ul>
 <!-- Button to open modal -->
@@ -27,4 +30,5 @@
     <button (click)="markAttendance()">Mark Attendance</button>
     <button (click)="closePinModal()">Cancel</button>
   </div>
+</div>
 </div>

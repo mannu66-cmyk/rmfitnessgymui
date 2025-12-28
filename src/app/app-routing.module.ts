@@ -20,9 +20,10 @@ const routes: Routes = [
       { path: 'member', component: MembersComponent },
       { path: 'member-form', component: MemberFormComponent },
       { path: 'attendance', component: AttendanceComponent },
-      { path: 'attendance-history', component: AttendanceHistoryComponent }
+      { path: 'attendance-history', component: AttendanceHistoryComponent },
     ],canActivateChild:[AuthGuard]
-  }
+  },
+  { path: '**', redirectTo:'',pathMatch:'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
