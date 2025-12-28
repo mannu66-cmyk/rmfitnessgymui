@@ -1,0 +1,27 @@
+<div id="attendance" class="card">
+  <h2>Attendance History</h2>
+
+  <input [(ngModel)]="mobile" placeholder="Mobile">
+
+  <select [(ngModel)]="filter">
+    <option value="day">Today</option>
+    <option value="week">Week</option>
+    <option value="month">Month</option>
+    <option value="year">Year</option>
+  </select>
+
+  <button (click)="load()">View</button>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Mobile</th>
+    </tr>
+    <tr *ngFor="let r of records">
+      <td>{{r.name}}</td>
+      <td>{{r.date}}</td>
+      <td>{{r.mobile}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div id="membersList" class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1599058917212-d750089bc07a'); background-size: cover;">
+
+  <h2>All Members</h2>
+
+  <select [(ngModel)]="filter" (change)="loadMembers()">
+    <option value="all">All</option>
+    <option value="active">Active</option>
+    <option value="expired">Expired</option>
+  </select>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Mobile</th>
+      <th>Status</th>
+      <th>Expiry</th>
+    </tr>
+    <tr *ngFor="let m of members">
+      <td>{{m.name}}</td>
+      <td>{{m.mobile}}</td>
+      <td>{{m.status}}</td>
+      <td>{{m.expiryDate}}</td>
+    </tr>
+  </table>
+</div>

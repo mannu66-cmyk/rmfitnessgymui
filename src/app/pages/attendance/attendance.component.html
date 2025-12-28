@@ -1,0 +1,30 @@
+<h2>Mark Attendance</h2>
+
+<input [(ngModel)]="mobile" placeholder="Mobile" (input)="onSearchMobile()">
+<ul id="suggestions" *ngIf="filteredMobiles.length > 0" 
+    style="list-style:none; padding:0; margin-top:10px; border: 1px solid #ccc;">
+    
+  <li *ngFor="let num of filteredMobiles" 
+      (click)="selectMobile(num.mobile)"
+      style="cursor:pointer; padding: 5px; border-bottom: 1px solid #eee;">
+    {{ num.mobile }}
+  </li>
+</ul>
+<!-- Button to open modal -->
+<button (click)="openPinModal()">Mark Attendance</button>
+
+<!-- PIN Modal -->
+<div class="modal" *ngIf="showPinModal">
+  <div class="modal-content">
+    <h3>Enter 4 Digit PIN</h3>
+
+    <input
+      type="password"
+      maxlength="4"
+      [(ngModel)]="pin"
+      placeholder="****" />
+
+    <button (click)="markAttendance()">Mark Attendance</button>
+    <button (click)="closePinModal()">Cancel</button>
+  </div>
+</div>

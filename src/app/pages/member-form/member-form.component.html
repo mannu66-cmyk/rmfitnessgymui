@@ -1,0 +1,42 @@
+<div class="card member-form-bg">
+  <h2>Add / Update Member</h2>
+
+  <form [formGroup]="memberForm" (ngSubmit)="saveMember()">
+
+    <input
+      type="text"
+      placeholder="Member Name"
+      formControlName="name" />
+
+    <input
+      type="text"
+      placeholder="Mobile Number"
+      formControlName="mobile" />
+
+    <input
+      type="number"
+      placeholder="Age"
+      formControlName="age" />
+
+    <select formControlName="plan">
+      <option value="">Select Pack</option>
+      <option value="1 Month">1 Month</option>
+      <option value="3 Months">3 Months</option>
+      <option value="6 Months">6 Months</option>
+      <option value="12 Months">12 Months</option>
+    </select>
+
+    <input
+      type="date"
+      formControlName="startDate" />
+
+    <input
+      type="password"
+      maxlength="4"
+      placeholder="4 Digit PIN"
+      formControlName="pin" />
+
+    <button type="submit">Save Member</button>
+
+  </form>
+</div>
