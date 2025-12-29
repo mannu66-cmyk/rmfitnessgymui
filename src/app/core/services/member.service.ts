@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class MemberService {
@@ -7,7 +8,17 @@ export class MemberService {
   private baseUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {}
+private memberSource = new BehaviorSubject<any>(null);
+  member$ = this.memberSource.asObservable();
 
+  setMember(member: any) {
+    this.memberSource.next(member);
+  }
+
+  clear() {
+    this.memberSource.next(null);
+  }
+  
   save(member: any) {
     return this.http.post(this.baseUrl, member);
   }

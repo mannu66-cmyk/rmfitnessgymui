@@ -11,7 +11,7 @@ import { AuthService } from './core/services/auth.service';
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -21,9 +21,10 @@ const routes: Routes = [
       { path: 'member-form', component: MemberFormComponent },
       { path: 'attendance', component: AttendanceComponent },
       { path: 'attendance-history', component: AttendanceHistoryComponent },
+       { path: '**', redirectTo:'/dashboard',pathMatch:'full'}
     ],canActivateChild:[AuthGuard]
   },
-  { path: '**', redirectTo:'',pathMatch:'full'}
+  { path: '**', redirectTo:'login',pathMatch:'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MemberService } from 'src/app/core/services/member.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class MembersComponent implements OnInit {
   gymFreaks: any[] = [];
   filter = 'all';
 
-  constructor(private memberService: MemberService) { }
+  constructor(private memberService: MemberService, private router:Router) { }
 
   ngOnInit() {
     this.memberService.getAll(this.filter)
@@ -38,4 +39,9 @@ export class MembersComponent implements OnInit {
     else
       this.members = [...this.gymFreaks];
   }
+
+  editMember(member: any) {
+  this.memberService.setMember(member);
+  this.router.navigate(['/dashboard/member-form']);
+}
 }

@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivateChild{
    const jwt=localStorage.getItem("jwt");
       if(log==='true')return true ;
       else {
-        this.routess.navigateByUrl('');
+        this.routess.navigateByUrl('login');
       } 
 return false ;
     }

@@ -17,7 +17,7 @@ export class LoginComponent {
     .subscribe({next:(res) => {
       this.authService.saveToken(res.token);
       localStorage.setItem('loggedIn', 'true');
-      this.router.navigateByUrl('/dashboard/member');
+      this.router.navigateByUrl('/dashboard');
     },
     error:()=>{
       alert('Something went wrong....');

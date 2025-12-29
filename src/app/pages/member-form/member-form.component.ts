@@ -25,6 +25,12 @@ export class MemberFormComponent implements OnInit {
       startDate: [today, Validators.required],
       pin: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]]
     });
+
+      this.memberService.member$.subscribe(member => {
+    if (member) {
+      this.memberForm.patchValue(member);
+    }
+  });
   }
 
   saveMember() {
@@ -42,6 +48,9 @@ export class MemberFormComponent implements OnInit {
         error: () => alert('Error saving member')
       });
   }
+  ngOnDestroy() {
+  this.memberService.clear();
+}
 }
 
 
