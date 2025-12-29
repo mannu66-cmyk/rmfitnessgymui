@@ -19,7 +19,7 @@
             <td>{{r.price}}</td>
         </tr>
     </table>
-    <button *ngIf="!hide" (click)="hide=!hide" style="background: transparent;">want to see package aggregate by month
+    <button (click)="hide=!hide" style="background: transparent;">want to see package aggregate by month
         or year</button>
     <div *ngIf="!hide">
         <h2 style="margin-top: 30px;">Package Aggregate: <h1>{{agg}}</h1>
