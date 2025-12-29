@@ -13,7 +13,7 @@ export class MembersComponent implements OnInit {
   gymFreaks: any[] = [];
   filter = 'all';
 
-  constructor(private memberService: MemberService, private router:Router) { }
+  constructor(private memberService: MemberService, private router: Router) { }
 
   ngOnInit() {
     this.memberService.getAll(this.filter)
@@ -41,7 +41,7 @@ export class MembersComponent implements OnInit {
   }
 
   editMember(member: any) {
-  this.memberService.setMember(member);
-  this.router.navigate(['/dashboard/member-form']);
-}
+    this.memberService.setMember(member);
+    this.router.navigate(['/dashboard/member-form']);
+  }
 }

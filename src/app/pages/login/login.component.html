@@ -1,8 +1,6 @@
-
-
- <div class="login-container card" id="loginPage">
-   <h2>Admin Login</h2>
+<div class="login-container card" id="loginPage">
+  <h2>Admin Login</h2>
   <input placeholder="Username" #user>
   <input placeholder="Password" #pass type="password" (keyup.enter)="login(user.value,pass.value)">
-  <button (click)="login(user.value,pass.value)"   (keyup.enter)="login(user.value,pass.value)">Login</button>
-  </div>
+  <button (click)="login(user.value,pass.value)" (keyup.enter)="login(user.value,pass.value)">Login</button>
+</div>

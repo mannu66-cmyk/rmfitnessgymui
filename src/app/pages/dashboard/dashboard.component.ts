@@ -9,12 +9,12 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private authService:AuthService,private route:Router) { }
+  constructor(private authService: AuthService, private route: Router) { }
 
   ngOnInit(): void {
   }
 
-  logout(){
+  logout() {
     this.authService.logout();
     this.route.navigateByUrl('/login');
   }

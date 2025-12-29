@@ -12,7 +12,7 @@
 
   <button (click)="load()">View</button>
 
-  <table>
+  <table *ngIf="records.length>0">
     <tr>
       <th>Name</th>
       <th>Date</th>
@@ -20,7 +20,7 @@
     </tr>
     <tr *ngFor="let r of records">
       <td>{{r.name}}</td>
-      <td>{{r.date}}</td>
+      <td>{{r.date}} {{r.time}}</td>
       <td>{{r.mobile}}</td>
     </tr>
   </table>

@@ -1,15 +1,17 @@
 <div class="dashboard " id="dashboard">
-<nav>
-  <button routerLink="/dashboard">Main</button>
-  
-    <button routerLink="/dashboard/member-form">Add/Update Members</button>
+  <nav>
+    <button routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Main</button>
 
-  <button routerLink="/dashboard/member">Members</button>
-  <button routerLink="/dashboard/attendance">Attendance</button>
-  <button routerLink="/dashboard/attendance-history">Attendance History</button>
-  <button (click)="logout()">Log out</button>
-</nav>
+    <button routerLink="/dashboard/member-form" routerLinkActive="active">Add/Update Members</button>
+
+    <button routerLink="/dashboard/member" routerLinkActive="active">Members</button>
+    <button routerLink="/dashboard/attendance" routerLinkActive="active">Attendance</button>
+    <button routerLink="/dashboard/attendance-history" routerLinkActive="active">Attendance History</button>
+    <button routerLink="/dashboard/package-history" routerLinkActive="active">Package History</button>
+
+    <button (click)="logout()">Log out</button>
+  </nav>
 </div>
 <div class="router">
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

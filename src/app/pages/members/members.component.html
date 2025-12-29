@@ -8,8 +8,10 @@
     <option value="active">Active</option>
     <option value="expired">Expired</option>
   </select>
-
-  <table>
+  <div style="text-align: center;" *ngIf="members.length==0">
+    <h5>No members</h5>
+  </div>
+  <table *ngIf="members.length>0">
     <tr>
       <th>Name</th>
       <th>Mobile</th>
@@ -20,9 +22,9 @@
       <td>{{m.name}}</td>
       <td>{{m.mobile}}</td>
       <td>{{m.status}}</td>
-      <td style="display: flex; justify-content: space-between;">{{m.expiryDate}} 
-       
-         <img src="/assets/edit.svg" style="background: white;"(click)="editMember(m)" width="40" height="30" alt="">
+      <td style="display: flex; justify-content: space-between;">{{m.expiryDate}}
+
+        <img src="/assets/edit.svg" style="background: white;" (click)="editMember(m)" width="40" height="30" alt="">
       </td>
     </tr>
   </table>

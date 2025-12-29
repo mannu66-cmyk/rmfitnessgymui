@@ -9,6 +9,7 @@ import { AttendanceHistoryComponent } from './pages/attendance-history/attendanc
 import { MemberFormComponent } from './pages/member-form/member-form.component';
 import { AuthService } from './core/services/auth.service';
 import { AuthGuard } from './core/guards/auth.guard';
+import { MemberPackageComponent } from './pages/member-package/member-package.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,10 +22,12 @@ const routes: Routes = [
       { path: 'member-form', component: MemberFormComponent },
       { path: 'attendance', component: AttendanceComponent },
       { path: 'attendance-history', component: AttendanceHistoryComponent },
-       { path: '**', redirectTo:'/dashboard',pathMatch:'full'}
-    ],canActivateChild:[AuthGuard]
+      { path: 'package-history', component: MemberPackageComponent },
+
+      { path: '**', redirectTo: '/dashboard', pathMatch: 'full' }
+    ], canActivateChild: [AuthGuard]
   },
-  { path: '**', redirectTo:'login',pathMatch:'full'}
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

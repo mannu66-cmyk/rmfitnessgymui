@@ -1,11 +1,13 @@
 .member-form-bg {
   background-image:
-    linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
     url('https://images.unsplash.com/photo-1517964603305-11c0f6f66012');
   background-size: cover;
 }
 
-input, select, button {
+input,
+select,
+button {
   width: 100%;
   margin: 8px 0;
   padding: 12px;

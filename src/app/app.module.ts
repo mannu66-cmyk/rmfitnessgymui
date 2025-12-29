@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MemberFormComponent } from './pages/member-form/member-form.component';
 import { JwtInterceptor } from './core/services/jwt.interceptor';
+import { MemberPackageComponent } from './pages/member-package/member-package.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { JwtInterceptor } from './core/services/jwt.interceptor';
     MembersComponent,
     AttendanceComponent,
     AttendanceHistoryComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    MemberPackageComponent
   ],
   imports: [
     BrowserModule,

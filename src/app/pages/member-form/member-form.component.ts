@@ -13,24 +13,25 @@ export class MemberFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private memberService: MemberService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    const today= new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0];
     this.memberForm = this.fb.group({
       name: ['', Validators.required],
       mobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       age: ['', Validators.required],
       plan: ['', Validators.required],
       startDate: [today, Validators.required],
-      pin: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]]
+      pin: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
+      price: ['', Validators.required],
     });
 
-      this.memberService.member$.subscribe(member => {
-    if (member) {
-      this.memberForm.patchValue(member);
-    }
-  });
+    this.memberService.member$.subscribe(member => {
+      if (member) {
+        this.memberForm.patchValue(member);
+      }
+    });
   }
 
   saveMember() {
@@ -49,8 +50,8 @@ export class MemberFormComponent implements OnInit {
       });
   }
   ngOnDestroy() {
-  this.memberService.clear();
-}
+    this.memberService.clear();
+  }
 }
 
 

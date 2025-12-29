@@ -4,9 +4,9 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private apiUrl = environment.apiBaseUrl+'auth/login';
+  private apiUrl = environment.apiBaseUrl + 'auth/login';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
     return this.http.post<any>(this.apiUrl, { username, password });

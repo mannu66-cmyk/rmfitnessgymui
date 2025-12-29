@@ -1,0 +1,27 @@
+button {
+    transition: transform 0.3s, color 0.3s, background-color 0.3s, border-left-color 0.3s, border-right-color 0.3s;
+}
+
+
+button:hover {
+    color: white;
+    background-color: black;
+    transform: scale(1.1);
+    border-left-color: red !important;
+    border-right-color: red !important;
+}
+
+nav {
+    button {
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+    }
+}
+
+
+.active {
+    color: white;
+    background-color: black;
+    border-left: 1px solid red !important;
+    border-right: 1px solid red !important;
+}

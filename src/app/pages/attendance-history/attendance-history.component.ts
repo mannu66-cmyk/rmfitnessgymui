@@ -5,14 +5,14 @@ import { AttendanceService } from 'src/app/core/services/attendance.service';
   selector: 'app-attendance-history',
   templateUrl: './attendance-history.component.html',
   styleUrls: ['./attendance-history.component.scss']
-}) 
+})
 export class AttendanceHistoryComponent {
 
   mobile = '';
   filter = 'month';
   records: any[] = [];
 
-  constructor(private attendanceService: AttendanceService) {}
+  constructor(private attendanceService: AttendanceService) { }
 
   load() {
     this.attendanceService.history(this.mobile, this.filter)

@@ -10,19 +10,21 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private router:Router, private authService:AuthService){}
+  constructor(private router: Router, private authService: AuthService) { }
 
-  login(username:string, password:string ) {
-  this.authService.login(username, password)
-    .subscribe({next:(res) => {
-      this.authService.saveToken(res.token);
-      localStorage.setItem('loggedIn', 'true');
-      this.router.navigateByUrl('/dashboard');
-    },
-    error:()=>{
-      alert('Something went wrong....');
-    }}
-  );
-}
+  login(username: string, password: string) {
+    this.authService.login(username, password)
+      .subscribe({
+        next: (res) => {
+          this.authService.saveToken(res.token);
+          localStorage.setItem('loggedIn', 'true');
+          this.router.navigateByUrl('/dashboard');
+        },
+        error: () => {
+          alert('Something went wrong....');
+        }
+      }
+      );
+  }
 
 }

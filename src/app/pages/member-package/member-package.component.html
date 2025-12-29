@@ -1,0 +1,53 @@
+<div id="attendance" class="card">
+    <h2>Package History</h2>
+
+    <input [(ngModel)]="mobile" placeholder="Mobile">
+
+
+
+    <button (click)="load()">View</button>
+
+    <table *ngIf="records.length>0">
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor="let r of records">
+            <td>{{r.name}}</td>
+            <td>{{r.date}}</td>
+            <td>{{r.price}}</td>
+        </tr>
+    </table>
+    <button *ngIf="!hide" (click)="hide=!hide" style="background: transparent;">want to see package aggregate by month
+        or year</button>
+    <div *ngIf="!hide">
+        <h2 style="margin-top: 30px;">Package Aggregate: <h1>{{agg}}</h1>
+        </h2>
+        <select [(ngModel)]="filter">
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+        </select>
+        <div *ngIf="filter=='month'">
+            <select [(ngModel)]="currentMonth" (change)="loadPackageAggregate(currentMonth)">
+                <option value="1">January</option>
+                <option value="2">Febuary</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        <div *ngIf="filter=='year'">
+            <select [(ngModel)]="currentYear" (change)="loadPackageAggregate(currentYear)">
+                <option *ngFor="let year of years" [value]="year">{{year}}</option>
+            </select>
+        </div>
+    </div>
+</div>

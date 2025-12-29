@@ -7,8 +7,8 @@ export class MemberService {
 
   private baseUrl = environment.apiBaseUrl;
 
-  constructor(private http: HttpClient) {}
-private memberSource = new BehaviorSubject<any>(null);
+  constructor(private http: HttpClient) { }
+  private memberSource = new BehaviorSubject<any>(null);
   member$ = this.memberSource.asObservable();
 
   setMember(member: any) {
@@ -18,13 +18,13 @@ private memberSource = new BehaviorSubject<any>(null);
   clear() {
     this.memberSource.next(null);
   }
-  
+
   save(member: any) {
     return this.http.post(this.baseUrl, member);
   }
 
   getAll(filter: string = 'all') {
-    return this.http.get<any[]>(`${this.baseUrl+'api/members'}?filter=${filter}`);
+    return this.http.get<any[]>(`${this.baseUrl + 'api/members'}?filter=${filter}`);
   }
 
   getByMobile(mobile: string) {
@@ -32,6 +32,6 @@ private memberSource = new BehaviorSubject<any>(null);
   }
 
   saveMember(data: any) {
-    return this.http.post(this.baseUrl+'api/members', data,{responseType:'text'});
+    return this.http.post(this.baseUrl + 'api/members', data, { responseType: 'text' });
   }
 }
