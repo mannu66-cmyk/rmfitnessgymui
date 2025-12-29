@@ -19,7 +19,7 @@ export class PackageService {
 
   aggregate(param: any) {
     return this.http.get<any>(
-      `${this.baseUrl}api/package-agg?param=${param}`
+      `${this.baseUrl}api/package/agg?param=${param}`
     );
   }
 }
