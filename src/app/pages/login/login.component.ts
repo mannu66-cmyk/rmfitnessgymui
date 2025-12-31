@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { error } from 'console';
 import { AuthService } from 'src/app/core/services/auth.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,10 +21,27 @@ export class LoginComponent {
           this.router.navigateByUrl('/dashboard');
         },
         error: () => {
-          alert('Something went wrong....');
+          Swal.fire({
+            text: 'Something went wrong...',
+            icon: 'error',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            timer: 2000,
+            timerProgressBar: false,
+            toast:true,
+            backdrop: true,
+            showConfirmButton: false,
+            showDenyButton: false,
+          });
         }
       }
       );
   }
 
+
 }
+
+
+
+
+

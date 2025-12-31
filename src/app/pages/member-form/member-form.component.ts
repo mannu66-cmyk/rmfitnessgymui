@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MemberService } from 'src/app/core/services/member.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-member-form',
@@ -43,10 +44,32 @@ export class MemberFormComponent implements OnInit {
     this.memberService.saveMember(this.memberForm.value)
       .subscribe({
         next: () => {
-          alert('Member saved successfully');
+          Swal.fire({
+            text: 'Member saved successfully',
+            icon: 'success',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            timer: 2000,
+            timerProgressBar: false,
+            toast:true,
+            showConfirmButton: false,
+            showDenyButton: false,
+          });
           this.memberForm.reset();
         },
-        error: () => alert('Error saving member')
+        error: () => {
+          Swal.fire({
+            text: 'Error saving member...',
+            icon: 'error',
+            showCancelButton: false,
+            allowOutsideClick: false,
+            timer: 2000,
+            timerProgressBar: false,
+            toast:true,
+            showConfirmButton: true,
+            showDenyButton: false,
+          })
+        }
       });
   }
   ngOnDestroy() {

@@ -15,7 +15,7 @@ export class MemberPackageComponent implements OnInit {
   }
   mobile = '';
   filter = 'month';
-  currentMonth = 1;
+  currentMonth = new Date().getMonth();;
   records: any[] = [];
   agg = 0;
   hide = true;
@@ -32,6 +32,10 @@ export class MemberPackageComponent implements OnInit {
     console.log(param);
     this.packageService.aggregate(param)
       .subscribe((res) => this.agg = res);
+  }
+
+  loadPackage() {
+    this.filter === 'month' ? this.loadPackageAggregate(this.currentMonth) : this.loadPackageAggregate(this.currentYear);
   }
 
 }
