@@ -14,7 +14,7 @@ export class MemberPackageComponent implements OnInit {
     }
   }
   mobile = '';
-  filter = 'month';
+  filter = '';
   currentMonth = new Date().getMonth()+1;
   records: any[] = [];
   agg = 0;
