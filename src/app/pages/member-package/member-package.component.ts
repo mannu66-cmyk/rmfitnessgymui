@@ -35,7 +35,7 @@ export class MemberPackageComponent implements OnInit {
   }
 
   loadPackage() {
-    this.filter === 'month' ? this.loadPackageAggregate(this.currentMonth) : this.loadPackageAggregate(this.currentYear);
+    this.filter == 'month' ? this.loadPackageAggregate(this.currentMonth) : this.loadPackageAggregate(this.currentYear);
   }
 
 }
