@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://api.rmfitnessgym.online/fitnessrm/'
+  apiBaseUrl: 'https://djhs1v12r796m.cloudfront.net/fitnessrm/'
 };
